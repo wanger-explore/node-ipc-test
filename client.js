@@ -1,32 +1,31 @@
 const { default: ipc } = require('node-ipc');
 
-ipc.config.id = 'client-1';
+ipc.config.id = 'server-2';
 ipc.config.retry = 1500;
 
-ipc.connectToNet(
-  'server-1',
+ipc.serveNet(
+  9001,
+  'udp4',
   function () {
-    ipc.of['server-1'].on(
-      'connect',
-      function () {
-        ipc.log('## connected to server-1 ##', ipc.config.delay);
-        ipc.of['server-1'].emit(
-          'channel-1',
-          'hello'
-        );
-      }
-    );
-    ipc.of['server-1'].on(
-      'disconnect',
-      function () {
-        ipc.log('disconnected from server-1');
-      }
-    );
-    ipc.of['server-1'].on(
+    ipc.server.on(
       'channel-2',
-      function (data) {
-        ipc.log('got a message from channel-2 : ', data);
+      function (data, socket) {
+        ipc.log('got data:', data)
+        ipc.log('got socket:', socket)
+      }
+    );
+    ipc.server.emit(
+      {
+        address: '127.0.0.1', //any hostname will work
+        port: 9000
+      },
+      'channel-1',
+      {
+        from: ipc.config.id,
+        message: 'Hello'
       }
     );
   }
 );
+
+ipc.server.start();
