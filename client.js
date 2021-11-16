@@ -3,7 +3,7 @@ const { default: ipc } = require('node-ipc');
 ipc.config.id = 'client-1';
 ipc.config.retry = 1500;
 
-ipc.connectToNet(
+ipc.connectTo(
   'server-1',
   function () {
     ipc.of['server-1'].on(

@@ -5,7 +5,7 @@ ipc.config.id = 'server-1';
 ipc.config.retry = 1500;
 ipc.config.maxConnections = 1;
 
-ipc.serveNet(
+ipc.serve(
   function () {
     ipc.server.on(
       'channel-1',
