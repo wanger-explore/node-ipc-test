@@ -1,0 +1,9 @@
+{
+  "name": "node-ipc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "node-ipc": "^10.1.0"
+  }
+}
