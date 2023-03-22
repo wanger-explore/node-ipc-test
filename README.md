@@ -10,7 +10,7 @@
 
 ### Unix Sockets 或者 Windows Sockets 通信
 
-这是同一台机器上进程通信的最快方式，因为它绕过了TCP和UDP都必须使用的网卡。
+一种 IPC 通信方式，它比 TCP 和 UDP 都快，因为它绕过了 TCP 和 UDP 都必须使用的网卡。
 
 参考分支 demo/use-serve-and-connectTo
 
