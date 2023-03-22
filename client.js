@@ -1,6 +1,7 @@
 const { default: ipc } = require('node-ipc');
 
 ipc.config.id = 'client-1';
+ipc.config.networkPort = 8899;
 ipc.config.retry = 1500;
 
 ipc.connectToNet(

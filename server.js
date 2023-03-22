@@ -3,6 +3,7 @@ const { default: ipc } = require('node-ipc');
 
 ipc.config.id = 'server-1';
 ipc.config.retry = 1500;
+ipc.config.networkPort = 8899;
 ipc.config.maxConnections = 1;
 
 ipc.serveNet(
